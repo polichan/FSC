@@ -6,10 +6,10 @@ import mysports.login as loginModule
 
 
 # 主函数的登陆模块
-def login(account, pwd):
+def login(account, pwd, type):
     try:
         print('正在登陆')
-        userid, session, school = loginModule.login(account, pwd)
+        userid, session, school = loginModule.login(account, pwd, type)
     except Exception as e:
         traceback.print_exc()
         print('登陆失败')
@@ -53,7 +53,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     mobile = input('input your account\n')
     password = input('input your password\n')
+    type = input('input your device type （iPhone 7, iPhone X etc. ）\n')
     # 调用登陆方法
-    login(mobile, password)
+    login(mobile, password, type)
     # run(mobile, password, rg=(args.red, args.green), debug=args.debug)
     input('press any key to quit...')

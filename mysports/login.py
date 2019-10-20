@@ -7,9 +7,9 @@ from mysports.original_json import headers, host
 from mysports.sports import get_md5_code
 
 
-def login(mobile, psd):
+def login(mobile, psd, type):
     # 生成 uuid
-    # headers['uuid'] = uuid.uuid4().hex.upper()
+    headers['uuid'] = uuid.uuid4().hex.upper()
 
     # 启动 session
     s = requests.Session()
@@ -20,8 +20,8 @@ def login(mobile, psd):
 
     # POST 所需要的 data 数据
     login_data = json.dumps(
-        {"info": '', "mobile": '', "password": '', "type": ""})
-    print('->>>>>>>>>>>>>>>>', login_data)
+        {"info": headers['uuid'], "mobile": mobile, "password": psd, "type": type})
+    print('<LoginModule>：请求数据:', login_data)
     print('<LoginModule>：登陆接口处md5加密:', get_md5_code(login_data))
     print('<LoginModule>：准备发起请求')
     params = {'sign': get_md5_code(login_data), 'data': login_data}

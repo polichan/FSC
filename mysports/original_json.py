@@ -22,7 +22,7 @@ headers = {
     'versionCode': '309',
     'versionName': '2.2.14',
     'xxversionxx': '20180601',
-    'uuid': 'C19A2771-8A26-5D35-A4BA-23816AEDA423-1540098375-692253',
+    'uuid': '',
     'utoken': '',
     'Connection': 'Keep-Alive',
     'Accept-Encoding': 'gzip, deflate',

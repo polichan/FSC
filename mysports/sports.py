@@ -41,7 +41,6 @@ def haversine(pos1, pos2):
 def get_md5_code(s):
     hl = hashlib.md5()
     a = 'lpKK*TJE8WaIg%93O0pfn0#xS0i3xE$z' + 'data' + s;
-    print('aaaaaaaa->>>>>>>>>>>>>', a)
     hl.update(('lpKK*TJE8WaIg%93O0pfn0#xS0i3xE$z' + 'data' + s).encode('ascii'))
     return hl.hexdigest()
 

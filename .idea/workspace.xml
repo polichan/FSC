@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="538ee99f-3108-4587-9167-a01c75c4e740" name="Default Changelist" comment="" />
+    <list default="true" id="538ee99f-3108-4587-9167-a01c75c4e740" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysports/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysports/original_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/original_json.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysports/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysports/sports.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/sports.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +29,13 @@
     <expand />
     <select />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Rdzdlvx6M3iYXYk52Io0bMyCf2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -105,15 +117,26 @@
       <updated>1570011851017</updated>
       <workItem from="1570011855003" duration="10829000" />
       <workItem from="1570075458738" duration="5380000" />
-      <workItem from="1571573534853" duration="2312000" />
+      <workItem from="1571573534853" duration="3406000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HackSportCampus$run.coverage" NAME="run Coverage Results" MODIFIED="1571574386268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
+    <SUITE FILE_PATH="coverage/HackSportCampus$run.coverage" NAME="run Coverage Results" MODIFIED="1571578159157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
     <SUITE FILE_PATH="coverage/sports_master$run.coverage" NAME="run Coverage Results" MODIFIED="1570081376027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
     <SUITE FILE_PATH="coverage/sports_master$login.coverage" NAME="login Coverage Results" MODIFIED="1570015670976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
     <SUITE FILE_PATH="coverage/HackSportCampus$login.coverage" NAME="login Coverage Results" MODIFIED="1571574134057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
