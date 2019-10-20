@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538ee99f-3108-4587-9167-a01c75c4e740" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sports-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sports-master.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysports/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysports/original_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/original_json.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysports/no_free_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/no_free_run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysports/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysports/sports.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysports/sports.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +38,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -118,6 +117,10 @@
       <workItem from="1570011855003" duration="10829000" />
       <workItem from="1570075458738" duration="5380000" />
       <workItem from="1571573534853" duration="3406000" />
+      <workItem from="1571578594880" duration="999000" />
+      <workItem from="1571579612512" duration="460000" />
+      <workItem from="1571580089796" duration="1413000" />
+      <workItem from="1571581528386" duration="936000" />
     </task>
     <servers />
   </component>
@@ -129,16 +132,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HackSportCampus$run.coverage" NAME="run Coverage Results" MODIFIED="1571578159157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
     <SUITE FILE_PATH="coverage/sports_master$run.coverage" NAME="run Coverage Results" MODIFIED="1570081376027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
     <SUITE FILE_PATH="coverage/sports_master$login.coverage" NAME="login Coverage Results" MODIFIED="1570015670976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
     <SUITE FILE_PATH="coverage/HackSportCampus$login.coverage" NAME="login Coverage Results" MODIFIED="1571574134057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
+    <SUITE FILE_PATH="coverage/HackSportCampus$run.coverage" NAME="run Coverage Results" MODIFIED="1571578159157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
+    <SUITE FILE_PATH="coverage/SportCampus$run.coverage" NAME="run Coverage Results" MODIFIED="1571582374333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysports" />
   </component>
 </project>
