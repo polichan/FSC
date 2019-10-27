@@ -12,10 +12,10 @@ def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False)
     data = json.dumps({"initLocation": "121.889662,30.895456", "type": "1", "userid": userid})
     res = ses.get(host + '/api/run/runPage', params={'sign': get_md5_code(data), 'data': data.encode('ascii')})
     if res.json()['code'] == 404:
-        print('<NoFreeRunModule>: 体育锻炼接口返回 JSON：',res.json()['msg'])
+        print('<NoFreeRunModule>: 体育锻炼接口返回 JSON：', res.json()['msg'])
         return
     resj = res.json()['data']
-    print('<NoFreeRunModule>: 体育锻炼接口返回 JSON', resj)
+    print('<NoFreeRunModule>: 体育锻炼接口返回 JSON：', resj)
 
     # red, green
     red, green = rg
