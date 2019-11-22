@@ -20,7 +20,7 @@ headers = {
     'Accept-Language': 'zh-Hans-CN;q=1',
     'User-Agent': 'CollegeSports2/2.2.14 (iPhone; iOS 11.0; Scale/3.00)',
     'versionCode': '309',
-    'versionName': '2.2.14',
+    'versionName': '2.2.15',
     'xxversionxx': '20180601',
     'uuid': '',
     'utoken': '',
