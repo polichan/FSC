@@ -9,7 +9,9 @@ from path_plan.plan import path_plan, get_school_location
 
 
 def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False):
-    data = json.dumps({"initLocation": "121.882763,30.892152", "type": "1", "userid": userid})
+
+    school_location = get_school_location(school)
+    data = json.dumps({"initLocation": school_location, "type": "1", "userid": userid})
     res = ses.get(host + '/api/run/runPage', params={'sign': get_md5_code(data), 'data': data.encode('ascii')})
     if res.json()['code'] == 404:
         print('<NoFreeRunModule>: 体育锻炼接口返回 JSON：', res.json()['msg'])
@@ -20,7 +22,6 @@ def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False)
     # red, green
     red, green = rg
 
-    school_location = get_school_location(school)
     if debug:
         print('school:' + str(school) + ' ' + 'location:' + str(school_location))
     # 处理节点
