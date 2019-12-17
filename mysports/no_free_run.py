@@ -9,7 +9,7 @@ from path_plan.plan import path_plan, get_school_location
 
 
 def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False):
-    data = json.dumps({"initLocation": "121.882662,30.892156", "type": "1", "userid": userid})
+    data = json.dumps({"initLocation": "121.882763,30.892152", "type": "1", "userid": userid})
     res = ses.get(host + '/api/run/runPage', params={'sign': get_md5_code(data), 'data': data.encode('ascii')})
     if res.json()['code'] == 404:
         print('<NoFreeRunModule>: 体育锻炼接口返回 JSON：', res.json()['msg'])
@@ -81,7 +81,7 @@ def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False)
 
     # peisu = 1000 / (bupin * bufu)
     bupin = random.uniform(120, 140)
-
+    bushu = random.randint(2000,3000)
     # construct post data
     no_free_data['endTime'] = (datetime.now() + timedelta(seconds=duration)).strftime("%Y-%m-%d %H:%M:%S")
     no_free_data['startTime'] = startTime
@@ -92,7 +92,7 @@ def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False)
     no_free_data['speed'] = speed
     no_free_data['track'] = path
     no_free_data['buPin'] = '%.1f' % bupin
-    no_free_data['busu'] = "2098"
+    no_free_data['totalNum'] = "%d" %bushu
     if not debug:
         print('plan run %s km til %s' % (dis, no_free_data['endTime']))
         time.sleep(duration)
