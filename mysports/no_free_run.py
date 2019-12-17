@@ -11,7 +11,7 @@ from path_plan.plan import path_plan, get_school_location
 def no_free_run(userid: str, ses, extra_pn=1, school="", rg=(2, 4), debug=False):
 
     school_location = get_school_location(school)
-    initLocation = str(school_location['lng']) + ","+ str(school_location['lat'])
+    initLocation = str(school_location['lng']) + "," + str(school_location['lat'])
     data = json.dumps({"initLocation": initLocation, "type": "1", "userid": userid})
     res = ses.get(host + '/api/run/runPage', params={'sign': get_md5_code(data), 'data': data.encode('ascii')})
     if res.json()['code'] == 404:
