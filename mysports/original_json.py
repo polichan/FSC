@@ -1,4 +1,4 @@
-host = 'http://www.sportcampus.cn'
+host = 'https://www.sportcampus.cn'
 
 post_data = {"bNode": [], "buPin": "0.0", "busu": "2027", "duration": "20", "endTime": "", "frombp": "0", "goal": "2.00",
              "real": "131622.016746475", "runPageId": "", "speed": "",
