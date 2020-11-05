@@ -1,4 +1,4 @@
-# FSC v2.x
+# FSC v2.x （in progress）
 ###### 
 FSC: F*ck Sport Campus
 
@@ -6,8 +6,8 @@ FSC: F*ck Sport Campus
 
 #### 须知
 * FSC V2 版本采用 Golang 全部重构
-* FSC 简洁易用，无需依赖
-* FSC 
+* FSC 简洁易用
+* FSC 结构清晰，适合二次开发
 
 #### 使用
 
