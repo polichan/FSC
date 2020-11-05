@@ -4,4 +4,5 @@ fsc:
 
 # sport campus config
 sportCampus:
-  api: "https://xxx.com"
+  api: "https://www.sportcampus.cn"
+  encryptionKey: "lpKK*TJE8WaIg%93O0pfn0#xS0i3xE$z"

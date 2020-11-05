@@ -14,6 +14,7 @@ func main() {
 		response.FailWithMessage("缺失参数，通过 -h 以获取帮助", nil)
 		return
 	}
+	Login()
 }
 
 func Init()  {
@@ -26,8 +27,8 @@ func Login()  {
 		password string
 		phoneType string
 	)
-	flag.StringVar(&mobile, "m", "", "高校体育登录手机号")
-	flag.StringVar(&password, "p", "", "高校体育登录密码")
+	flag.StringVar(&mobile, "m", "", "登录手机号")
+	flag.StringVar(&password, "p", "", "登录密码")
 	flag.StringVar(&phoneType, "pt", "", "登录设备类型：例：iPhone X")
 	flag.Parse()
 	controller.Login(mobile, password, phoneType)

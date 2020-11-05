@@ -1,165 +1,152 @@
 package util
 
 import (
-	"bytes"
-	"crypto/tls"
-	"errors"
-	"io/ioutil"
-	"log"
-	"net/http"
+    "crypto/tls"
+    "encoding/json"
+    "errors"
+    "fmt"
+    "fsc/global/response"
+    "io/ioutil"
+    "net/http"
+    "net/url"
+    "strings"
+    "sync"
 )
-
+ 
+var (
+    GET_METHOD    = "GET"
+    POST_METHOD   = "POST"
+    SENDTYPE_FROM = "from"
+    SENDTYPE_JSON = "json"
+)
+ 
 type FSCHttpClient struct {
-	req *http.Request
-	body []byte
-	err error
-	executed bool
-	debug bool
-	statusCode int
+    Link     string
+    SendType string
+    Header   map[string]string
+    Body     map[string]string
+    sync.RWMutex
+}
+ 
+func NewFSCHttpClientSend(link string) *FSCHttpClient {
+    return &FSCHttpClient{
+        Link:     link,
+        SendType: SENDTYPE_FROM,
+    }
+}
+ 
+func (h *FSCHttpClient) SetBody(body map[string]string) {
+    h.Lock()
+    defer h.Unlock()
+    h.Body = body
+}
+ 
+func (h *FSCHttpClient) SetHeader(header map[string]string) {
+    h.Lock()
+    defer h.Unlock()
+    h.Header = header
+}
+ 
+func (h *FSCHttpClient) SetSendType(send_type string) {
+    h.Lock()
+    defer h.Unlock()
+    h.SendType = send_type
+}
+ 
+func (h *FSCHttpClient) Get() ([]byte, error) {
+    return h.send(GET_METHOD)
+}
+ 
+func (h *FSCHttpClient) Post() ([]byte, error) {
+    return h.send(POST_METHOD)
+}
+ 
+func GetUrlBuild(link string, data map[string]string) string {
+    u, _ := url.Parse(link)
+    q := u.Query()
+    for k, v := range data {
+        q.Set(k, v)
+    }
+    u.RawQuery = q.Encode()
+    return u.String()
 }
 
-func New() *FSCHttpClient {
-	c := &FSCHttpClient{}
-	return c
-}
+func (h *FSCHttpClient) send(method string) ([]byte, error) {
+    var (
+        req       *http.Request
+        resp      *http.Response
+        client    http.Client
+        send_data string
+        err       error
+    )
+ 
+    if len(h.Body) > 0 {
+        if strings.ToLower(h.SendType) == SENDTYPE_JSON {
+            send_body, json_err := json.Marshal(h.Body)
+            if json_err != nil {
+                return nil, json_err
+            }
+            send_data = string(send_body)
+        } else {
+            send_body := http.Request{}
+            send_body.ParseForm()
+            for k, v := range h.Body {
+                send_body.Form.Add(k, v)
+            }
+            send_data = send_body.Form.Encode()
+        }
+    }
+ 
+    //忽略https的证书
+    client.Transport = &http.Transport{
+        TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+    }
+ 
+    req, err = http.NewRequest(method, h.Link, strings.NewReader(send_data))
+    if err != nil {
+        return nil, err
+    }
+    defer req.Body.Close()
+ 
+    //设置默认header
+    if len(h.Header) == 0 {
+        //json
+        if strings.ToLower(h.SendType) == SENDTYPE_JSON {
+            h.Header = map[string]string{
+                "Content-Type": "application/json; charset=utf-8",
+            }
+        } else { //form
+            h.Header = map[string]string{
+                "Content-Type": "application/x-www-form-urlencoded",
+            }
+        }
+    }
+ 
+    for k, v := range h.Header {
+        if strings.ToLower(k) == "host" {
+            req.Host = v
+        } else {
+            req.Header.Add(k, v)
+        }
+    }
+ 
+    resp, err = client.Do(req)
+    if err != nil {
+        return nil, err
+    }
 
-//Start with get
-func Get(url string) *FSCHttpClient {
-	c := New()
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		c.err = err
-		return c
-	}
-	c.req = req
-	return c
-}
+    if resp.StatusCode != http.StatusOK {
+        return nil, errors.New(fmt.Sprintf("error http code :%d", resp.StatusCode))
+    }
 
-//Start with post
-func Post(url string) *FSCHttpClient {
-	c := New()
-	req, err := http.NewRequest("POST", url, nil)
-	if err != nil {
-		c.err = err
-		return c
-	}
-	c.req = req
-	return c
-}
+    defer req.Body.Close()
 
-//Start with Raw
-func Raw(url string, bs []byte) *FSCHttpClient {
-	c := New()
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(bs))
-	if err != nil {
-		c.err = err
-		return c
-	}
-	c.req = req
-	return c
-}
-
-//Add query k,v
-func (c *FSCHttpClient) Query(k, v string) *FSCHttpClient {
-	q := c.req.URL.Query()
-	q.Add(k, v)
-	c.req.URL.RawQuery = q.Encode()
-	return c
-}
-
-//Add post form k,v
-func (c *FSCHttpClient) Form(k, v string) *FSCHttpClient {
-	c.req.ParseForm()
-	c.req.Form.Add(k, v)
-	return c
-}
-
-//Start Request
-func (c *FSCHttpClient) Exec() *FSCHttpClient {
-	c.executed = true
-	if c.req == nil {
-		return c
-	}
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-	}
-	client := &http.Client{Transport: tr}
-	resp, err := client.Do(c.req)
-	defer func() {
-		if resp != nil {
-			resp.Body.Close()
-		}
-		client.CloseIdleConnections()
-
-	}()
-
-	if err != nil {
-		c.err = err
-		return c
-	}
-	body, err := ioutil.ReadAll(resp.Body)
-
-	if c.debug {
-		log.Println(string(body))
-	}
-
-	c.statusCode = resp.StatusCode
-
-	if err != nil {
-		c.err = err
-		return c
-	}
-
-	c.body = body
-
-	return c
-}
-
-func (c *FSCHttpClient) GetError() error {
-	if !c.executed {
-		return errors.New("please do exec first")
-	}
-
-	if c.err != nil {
-
-		return c.err
-	}
-
-	if c.body == nil {
-		return errors.New("body is nil")
-	}
-	return nil
-}
-
-//render result with string
-func (c *FSCHttpClient) String() (int, string, error) {
-
-	err := c.GetError()
-
-	if err != nil {
-		return c.StatusCode(), "", err
-	}
-
-	return c.StatusCode(), string(c.body), nil
-}
-
-func (c *FSCHttpClient) StatusCode() int {
-
-	if !c.executed {
-		return 0
-
-	}
-
-	return c.statusCode
-}
-
-func (c *FSCHttpClient) Bytes() (int, []byte, error) {
-
-	return c.StatusCode(), c.body, c.GetError()
-}
-
-func (c *FSCHttpClient) Debug() *FSCHttpClient {
-
-	c.debug = true
-	return c
+    body, err := ioutil.ReadAll(resp.Body)
+    scRep := response.SCResponse{}
+    err = json.Unmarshal(body, &scRep)
+    if scRep.Code != "200" {
+        return nil, errors.New(scRep.Msg)
+    }else{
+        return body, err
+    }
 }
