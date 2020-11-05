@@ -1,3 +1,4 @@
+![Screenshot](https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png)
 # FSC v2.x （in progress）
 ###### 
 FSC: F*ck Sport Campus
