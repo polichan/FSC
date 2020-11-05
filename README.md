@@ -1,6 +1,10 @@
-<img src="https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png" width = "400" height = "225" alt="FSC" />
+<p align="center">
+<img src="https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png" alt="FSC" />
+</p>
+<p align="center">
+FSC v2.x （in progress）
+</p>
 
-# FSC v2.x （in progress）
 ###### 
 FSC: F*ck Sport Campus
 
