@@ -1,13 +1,13 @@
-# FSC v2.x
+# FSC v2.x （in progress）
 ###### 
 FSC: F*ck Sport Campus
 
 一个易用的高校体育刷跑步次数的工具
 
-#### 须知
+#### 介绍
 * FSC V2 版本采用 Golang 全部重构
-* FSC 简洁易用，无需依赖
-* FSC 
+* FSC V2 结构清晰，适合二次开发
+* FSC V2 一次配置，多次使用
 
 #### 使用
 
@@ -23,8 +23,8 @@ FSC: F*ck Sport Campus
 
 ##### v2 版本（开发中）
 * 由 ``Golang`` 编写
-* 无任何依赖
-* 代码整洁
+* 近乎无依赖配置
+* 工程化项目，适合二次开发
 * branch: ``dev-golang``
 
 #### License
