@@ -5,8 +5,8 @@
 FSC v2.x （in progress）
 </p>
 
-###### 
-FSC: F*ck Sport Campus
+
+# FSC: F*ck Sport Campus
 
 一个易用的高校体育刷跑步次数的工具
 
