@@ -1,8 +1,9 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png" alt="FSC" />
+<img src="https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png" width="300" height="155" alt="FSC" />
 </p>
+
 <p align="center">
-FSC v2.x （in progress）
+Powered by Golang
 </p>
 
 
