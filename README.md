@@ -1,8 +1,13 @@
-<img src="https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png" width = "400" height = "225" alt="FSC" />
+<p align="center">
+<img src="https://raw.githubusercontent.com/polichan/FSC/dev-golang/screenshots/FSC.png" width="300" height="155" alt="FSC" />
+</p>
 
-# FSC v2.x （in progress）
-###### 
-FSC: F*ck Sport Campus
+<p align="center">
+Powered by Golang
+</p>
+
+
+# FSC: F*ck Sport Campus
 
 一个易用的高校体育刷跑步次数的工具
 
