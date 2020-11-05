@@ -1,5 +1,2 @@
-package main
+package util
 
-func main() {
-
-}

@@ -1,1 +1,7 @@
-debug: false
+# fsc config
+fsc:
+  debug: true
+
+# sport campus config
+sportCampus:
+  api: "https://xxx.com"

@@ -1,20 +1,12 @@
 package config
 
+// FSC 系统配置
 type FSCConfig struct {
-	Debug bool `yaml:"debug"`
+	Debug bool `mapstructure:"debug" json:"debug" yaml:"fsc-debug"`
+	SportCampusConfig SportCampusConfig `mapstructure:"sportCampus" json:"sportCampus" yaml:"sportCampus"`
 }
 
-/**
-高校体育接口配置
- */
-type SportCampusInterfaceConfig struct {
-	Api string `yaml:"api"`
-	Header SportCampusRequestHeader `yaml:"sportCampus"`
-}
-
-/**
-高校体育请求头
- */
-type SportCampusRequestHeader struct {
-
+// 高校体育配置
+type SportCampusConfig struct {
+	Api string `mapstructure:"api" json:"api" yaml:"api"`
 }
