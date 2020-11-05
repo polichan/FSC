@@ -1,6 +1,6 @@
-package main
+package config
 
-type System struct {
+type FSCConfig struct {
 	Debug bool `yaml:"debug"`
 }
 
@@ -9,7 +9,7 @@ type System struct {
  */
 type SportCampusInterfaceConfig struct {
 	Api string `yaml:"api"`
-	Header SportCampusRequestHeader `yaml:"sport-c"`
+	Header SportCampusRequestHeader `yaml:"sportCampus"`
 }
 
 /**
