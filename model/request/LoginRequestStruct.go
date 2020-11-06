@@ -1,6 +1,6 @@
 package request
 
-type LoginRequestStruct struct {
+type SCRequestStruct struct {
 	Sign string `json:"sign" mapstructure:"sign"`
 	Data string `json:"data" mapstructure:"data"`
 }

@@ -52,7 +52,7 @@ func drawPanel()  {
 	fmt.Println("\n*          2----------自    由     跑          *")
 	fmt.Println("\n*          3----------退           出          *")
 	fmt.Println("\n***********************************************")
-	fmt.Printf("\n 请选择选项号: ")
+	fmt.Printf("\n请选择选项号: ")
 }
 
 func execAction(option *int)  {

@@ -20,7 +20,7 @@ func Login(loginModel *model.LoginStruct)(err error)  {
 	// 获取 sign
 	sign := util.GetMd5(v)
 	// 请求体
-	var loginRequestStruct request.LoginRequestStruct
+	var loginRequestStruct request.SCRequestStruct
 	loginRequestStruct.Sign = sign
 	loginRequestStruct.Data = string(v)
 	// 转 map

@@ -5,6 +5,7 @@ import (
     "encoding/json"
     "errors"
     "fmt"
+    "fsc/global"
     "fsc/global/response"
     "io/ioutil"
     "net/http"
@@ -114,10 +115,22 @@ func (h *FSCHttpClient) send(method string) ([]byte, error) {
         if strings.ToLower(h.SendType) == SENDTYPE_JSON {
             h.Header = map[string]string{
                 "Content-Type": "application/json; charset=utf-8",
+                "User-Agent": "CollegeSports2/2.2.14 (iPhone; iOS 11.0; Scale/3.00)",
+                "versionCode": "309",
+                "versionName": "2.2.15",
+                "xxversionxx": "20180601",
+                "uuid": "uuid",
+                "platform": "iOS",
             }
         } else { //form
             h.Header = map[string]string{
                 "Content-Type": "application/x-www-form-urlencoded",
+                "User-Agent": "CollegeSports2/2.2.14 (iPhone; iOS 11.0; Scale/3.00)",
+                "versionCode": "309",
+                "versionName": "2.2.15",
+                "xxversionxx": "20180601",
+                "uuid": "uuid",
+                "platform": "iOS",
             }
         }
     }
@@ -129,7 +142,13 @@ func (h *FSCHttpClient) send(method string) ([]byte, error) {
             req.Header.Add(k, v)
         }
     }
- 
+
+     if global.FSC_USER != nil {
+         // 如果以及登录过了，就添加 UToken 进去
+        req.Header.Add("utoken", global.FSC_USER.UToken)
+     }
+
+
     resp, err = client.Do(req)
     if err != nil {
         return nil, err
