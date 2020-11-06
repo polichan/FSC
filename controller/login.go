@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"fsc/global/response"
+	"fsc/global"
 	"fsc/model"
 	"fsc/service"
 )
@@ -14,8 +14,8 @@ func Login(mobile string, password string, phoneType string)  {
 	}
 	err := service.Login(loginStruct)
 	if err != nil {
-		response.FailWithMessage("登录失败", err)
+		global.FSC_LOG.Error("登录失败", err)
 	}else{
-		response.OkWithMessage("登录成功")
+		global.FSC_LOG.Info("登录成功")
 	}
 }

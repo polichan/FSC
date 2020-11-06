@@ -1,5 +1,9 @@
 package controller
 
-func Run()  {
+func RunTarget()  {
+
+}
+
+func FreeRun()  {
 
 }

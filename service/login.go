@@ -2,9 +2,12 @@ package service
 
 import (
 	"encoding/json"
+	"fsc/global"
+	"fsc/global/response"
 	"fsc/model"
 	"fsc/model/request"
 	"fsc/util"
+	"github.com/mitchellh/mapstructure"
 	uuid "github.com/satori/go.uuid"
 )
 
@@ -25,6 +28,15 @@ func Login(loginModel *model.LoginStruct)(err error)  {
 	_ = util.Transfer(loginRequestStruct, &mp)
 	// 请求
 	client := util.NewFSCHttpClientSend(util.GetUrlBuild(util.GenerateUrl("/api/reg/login"), mp))
-	_, err = client.Get()
+	body, err := client.Get()
+	if err != nil {
+		return err
+	}
+	scRep := response.SCResponse{}
+	scUser := model.UserStruct{}
+    err = json.Unmarshal(body, &scRep)
+    // 传递给全局
+    err = mapstructure.Decode(scRep.Data, &scUser)
+    global.FSC_USER = &scUser
 	return err
 }
