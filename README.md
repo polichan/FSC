@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-Powered by Golang
+Copyright © ChenPengyu · Powered by Golang
 </p>
 
 
 # FSC: F*ck Sport Campus
 
-一个易用的高校体育刷跑步次数的工具
+一个全能的高校体育工具
 
 #### 介绍
 * FSC V2 版本采用 Golang 全部重构
@@ -34,5 +34,10 @@ Powered by Golang
 * 工程化项目，适合二次开发
 * branch: ``dev-golang``
 
-#### License
-MIT License
+#### 开源许可及协议
+FSC is released under the MIT license. See [LICENSE](https://github.com/polichan/fsc/blob/master/LICENSE) for details.
+
+#### 免责声明
+FSC（下称本项目）仅供学习交流使用，请勿用于非法用途。若您将其用于非法用途，本人一概不承担任何法律风险以及法律责任，所有法律风险以及法律责任均由您本人承担。若您无法接受此声明，请勿使用本项目。
+#### 支持
+![jetbrains](https://z-kit.cc/assets/images/jetbrains.png)   

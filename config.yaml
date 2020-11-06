@@ -1,8 +1,28 @@
-# fsc config
+# FSC Global Configuration
+
+# FSC 核心配置
 fsc:
   debug: true
 
-# sport campus config
+# 高效体育接口与加密 key（不了解请勿修改）
 sportCampus:
   api: "https://www.sportcampus.cn"
   encryptionKey: "lpKK*TJE8WaIg%93O0pfn0#xS0i3xE$z"
+
+# 高校体育登录账号
+account:
+  mobile: "" # 登录账号
+  password: "" # 密码
+  phoneType: "" #手机类型，iPhone X，iPhone 7 等
+
+# 面板
+panel:
+  red-dot: "1" # 跑几个红点
+  green-dot: "2" # 跑几个绿点
+
+# logger configuration
+log:
+    prefix: '[FSC]'
+    log-file: true
+    stdout: 'DEBUG'
+    file: 'DEBUG'
