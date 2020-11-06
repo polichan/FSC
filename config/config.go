@@ -9,6 +9,7 @@ type FSCConfig struct {
 	Account model.LoginStruct `mapstructure:"account" json:"account" yaml:"account"`
 	Panel FSCPanel `mapstructure:"panel" json:"panel" yaml:"panel"`
 	Log Log `mapstructure:"log" json:"log" yaml:"log"`
+	BaiduMapConfig BaiduMapConfig `json:"mapstructure:"baiduMap" json:"baiduMap" yaml:"baiduMap"`
 }
 
 // FSC 核心
@@ -28,9 +29,17 @@ type FSCPanel struct {
 	GreenDot string `json:"green-dot"`
 }
 
+// Logger
 type Log struct {
 	Prefix  string `mapstructure:"prefix" json:"prefix" yaml:"prefix"`
 	LogFile bool   `mapstructure:"log-file" json:"logFile" yaml:"log-file"`
 	Stdout  string `mapstructure:"stdout" json:"stdout" yaml:"stdout"`
 	File    string `mapstructure:"file" json:"file" yaml:"file"`
+}
+
+// 百度地图配置
+type BaiduMapConfig struct {
+	Api string `mapstructure:"api" json:"api" yaml:"api"`
+	AccessKey string `mapstructure:"accessKey" json:"accessKey" yaml:"accessKey"`
+	SecretKey string `mapstructure:"secretKey" json:"secretKey" yaml:"secretKey"`
 }

@@ -4,6 +4,13 @@
 fsc:
   debug: true
 
+# Baidu 地图 API
+baiduMap:
+  api: "http://api.map.baidu.com"
+  accessKey: "zqZrWc3iKoMsMRmUjrQyzneeWhIPxGvV"
+  secretKey: "tvomES1GLg7w8N3rp2aoCXSoPHrQ28l0"
+
+
 # 高效体育接口与加密 key（不了解请勿修改）
 sportCampus:
   api: "https://www.sportcampus.cn"
@@ -23,6 +30,6 @@ panel:
 # logger configuration
 log:
     prefix: '[FSC]'
-    log-file: true
+    log-file: false
     stdout: 'DEBUG'
     file: 'DEBUG'
