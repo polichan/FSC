@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-Copyright © ChenPengyu · Powered by Golang
+Powered by Golang
 </p>
 
 
