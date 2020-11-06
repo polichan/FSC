@@ -3,8 +3,9 @@
 </p>
 
 <p align="center">
-Powered by Golang
+  <img src="https://travis-ci.com/polichan/FSC.svg?branch=dev-golang" alt="travis-ci" />
 </p>
+
 
 
 # FSC: F*ck Sport Campus
