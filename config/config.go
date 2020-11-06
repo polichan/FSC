@@ -9,7 +9,7 @@ type FSCConfig struct {
 	Account model.LoginStruct `mapstructure:"account" json:"account" yaml:"account"`
 	Panel FSCPanel `mapstructure:"panel" json:"panel" yaml:"panel"`
 	Log Log `mapstructure:"log" json:"log" yaml:"log"`
-	BaiduMapConfig BaiduMapConfig `json:"mapstructure:"baiduMap" json:"baiduMap" yaml:"baiduMap"`
+	BaiduMapConfig BaiduMapConfig `mapstructure:"baiduMap" json:"baiduMap" yaml:"baiduMap"`
 }
 
 // FSC 核心

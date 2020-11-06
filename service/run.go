@@ -1,10 +1,14 @@
 package service
 
-import "fsc/model"
+import (
+	"fsc/model"
+	"fsc/util"
+)
 
 // 体育锻炼
 func RunTarget(user *model.UserStruct)(err error)  {
-	return nil
+	err = util.GetSchoolLocation("上海电机学院")
+	return err
 }
 
 // 自由跑
