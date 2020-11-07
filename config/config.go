@@ -15,6 +15,7 @@ type FSCConfig struct {
 // FSC 核心
 type FSC struct {
 	Debug bool `mapstructure:"debug" json:"debug" yaml:"debug"`
+	Version string `mapstructure:"version" json:"version" yaml:"version"`
 }
 
 // 高校体育配置

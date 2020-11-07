@@ -1,75 +1,41 @@
 package gui
 
 import (
-	"fmt"
-	"fsc/controller"
-	"fsc/global"
-	"fsc/util"
-)
-
-const (
-	FSCPanelOptionLogin = iota
-	FSCPanelOptionRunTarget
-	FSCPanelOptionFreeRun
-	FSCPanelOptionExit
+	"fsc/logic"
+	"os"
 )
 
 func ShowPanel()  {
-	option := 0
-	for option != FSCPanelOptionExit {
-		// 绘制面板
-		drawPanel()
-		// 根据面板序号执行动作
-		execAction(&option)
-	}
+	// 构建面板
+	panel := logic.NewFSCPanel()
+	// 设置面板选项数据
+	panel.SetOptions(PrepareOptionItems())
+	// 绘制面板
+	panel.Draw()
+	// 询问用户进行选择
+	panel.Ask()
+	// 监听用户选择
+	panel.WatchingOption()
 }
 
-func login()  {
-	if isLogin() {
-		util.ShowUserInfo()
-		return
-	}
-	accountStruct := global.FSC_CONFIG.Account
-	if accountStruct.Mobile == "" || accountStruct.Password == "" || accountStruct.PhoneType == "" {
-		global.FSC_LOG.Error("请先在 config.yaml 中设置正确的高校体育账号信息")
-	}else{
-		controller.Login(accountStruct.Mobile, accountStruct.Password, accountStruct.PhoneType)
-	}
-}
-
-func isLogin() bool {
-	return global.FSC_USER != nil
-}
-
-func drawPanel()  {
-	fmt.Println("\n                  FSC v2.0")
-	fmt.Println("\n***********************************************")
-	if isLogin(){
-		fmt.Println("\n*          0----------个  人  资   料          *")
-	}else{
-		fmt.Println("\n*          0----------账  号   登  录          *")
-	}
-	fmt.Println("\n*          1----------目    标     跑          *")
-	fmt.Println("\n*          2----------自    由     跑          *")
-	fmt.Println("\n*          3----------退           出          *")
-	fmt.Println("\n***********************************************")
-	fmt.Printf("\n请选择选项号: ")
-}
-
-func execAction(option *int)  {
-	o := *option
-	_, _ = fmt.Scanf("%d", &o)
-	switch o {
-	case FSCPanelOptionRunTarget:
-		controller.RunTarget()
-		break
-		case FSCPanelOptionFreeRun:
-			controller.FreeRun()
-		break
-		case FSCPanelOptionLogin:
-			login()
-		break
-		case FSCPanelOptionExit:
-			*option = 3
+func PrepareOptionItems()[]logic.PanelOptionItem  {
+	// 创建数据源
+	panelOptionOne := logic.NewPanelOptionItem(logic.FSCPanelOptionLogin, func() {
+		logic.Login()
+	}, "账号登录")
+	panelOptionTwo := logic.NewPanelOptionItem(logic.FSCPanelOptionRunTarget, func() {
+		logic.RunTarget()
+	}, "体育锻炼")
+	panelOptionThree := logic.NewPanelOptionItem(logic.FSCPanelOptionFreeRun, func() {
+		logic.FreeRun()
+	}, "自由跑步")
+	panelOptionFour := logic.NewPanelOptionItem(logic.FSCPanelOptionExit, func() {
+		os.Exit(0)
+	}, "退出系统")
+	return []logic.PanelOptionItem{
+		panelOptionOne,
+		panelOptionTwo,
+		panelOptionThree,
+		panelOptionFour,
 	}
 }

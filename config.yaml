@@ -3,6 +3,7 @@
 # FSC 核心配置
 fsc:
   debug: true
+  version: "2.0"
 
 # Baidu 地图 API
 baiduMap:
