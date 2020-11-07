@@ -1,38 +1,37 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+name: BUG 汇报
+about: 创建一个关于你遇到的 BUG 汇报，以帮助我们进行改进
+title: '【BUG】请描述你遇到的 BUG 标题'
+labels: 'bug'
+assignees: 'polichan'
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**描述 BUG**
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+一段清晰的 BUG 描述可以帮助我们快速定位 BUG 所在。
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**BUG 复现步骤**
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+复现 BUG 的操作
+例如：
+1. 运行 FSC
+2. 选择 xx 选项
+3. 出现异常
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**期望的结果**
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+对于这个 BUG，你期待的正确结果是什么。
 
-**Additional context**
-Add any other context about the problem here.
+**截图**
+
+如果有必要，你可以在这里截图 BUG。
+
+**你的环境**
+ - 操作系统: [例如：Windows]
+ - GO 语言版本 [例如：1.15.3]
+ - FSC 版本 [例如：2.0]
+
+**其他信息**
+
+如有必要，请填写其他必要信息。

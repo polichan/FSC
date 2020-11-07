@@ -1,20 +1,18 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+name: 新功能建议
+about: 提交一个你对本项目的新功能建议
+title: '【Feature】请在这填写新功能建议的标题'
+labels: 'feature, enhancement'
+assignees: 'polichan'
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**描述您所期望的新功能**
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+请进行一段清晰的描述，以方便我们更好的理解您的意图。
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+例如：FSC 应该添加一个自动登录的功能，不需要我在面板中手动选择登录选项进行登录。
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**其他信息**
+
+如有必要，请填写其他必要信息。
