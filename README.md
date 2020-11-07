@@ -8,7 +8,7 @@
 
 
 
-# FSC: F*ck Sport Campus
+# FSC: F*ck Sport College
 
 一个全能的高校体育工具
 
@@ -19,7 +19,7 @@
 
 #### 使用
 
-* 如果你是 Windows 用户：查看 [Release](https://github.com/polichan/SportCampus/releases) 页面，下载 v2 系列，并双击运行。
+* 如果你是 Windows 用户：查看 [Release](https://github.com/polichan/fsc/releases) 页面，下载 v2 系列，并双击运行。
 * 如果你是开发者：``fork`` 本仓库，``git clone`` 之后，打开你的 IDE 开始修改（欢迎 PR）
 
 #### 里程碑
