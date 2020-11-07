@@ -34,7 +34,7 @@ type IPanel interface {
 
 type FSCPanel struct {
 	CurrentOption int
-	options []PanelOptionItem
+	options []*PanelOptionItem
 }
 
 func (F FSCPanel) Draw() {
@@ -44,16 +44,14 @@ func (F FSCPanel) Draw() {
 	F.DrawLine()
 }
 
-func NewPanelOptionItem(option int, action func(), title string) PanelOptionItem {
-	return PanelOptionItem{
-		Option: option,
-		Action: action,
-		Title: title,
-	}
+func (P *PanelOptionItem)SetPanelOptionItem(option int, action func(), title string) {
+	P.Option = option
+	P.Action = action
+	P.Title = title
 }
 
 func NewFSCPanel() *FSCPanel {
-	return &FSCPanel{options: make([]PanelOptionItem, 0), CurrentOption: FSCPanelOptionWaitingUserInput}
+	return &FSCPanel{options: make([]*PanelOptionItem, 0), CurrentOption: FSCPanelOptionWaitingUserInput}
 }
 
 func (F *FSCPanel)SetCurrentOption(option int) {
@@ -61,31 +59,34 @@ func (F *FSCPanel)SetCurrentOption(option int) {
 }
 
 func (F *FSCPanel) SetOption(option PanelOptionItem) {
-	F.options = append(F.options, option)
+	F.options = append(F.options, &option)
 }
 
-func (F *FSCPanel) SetOptions(options []PanelOptionItem) {
+func (F *FSCPanel) SetOptions(options []*PanelOptionItem) {
 	F.options = options
 }
 
 func (F *FSCPanel)WatchingOption()  {
 	for F.CurrentOption !=  FSCPanelOptionExit{
 		_, _ = fmt.Scanf("%d", &F.CurrentOption)
-		hasOption := false
-		// 根据用户的 option 调用相应 Action
-		for _, option := range F.options{
-			if option.Option == F.CurrentOption {
-				hasOption = true
-				option.Action()
-				break
-			}
-		}
-		if !hasOption {
-			global.FSC_LOG.Info("请选择正确的选项！")
-		}
+		hasOption := F.notifyOptionAction()
+		if !hasOption {global.FSC_LOG.Info("请选择正确的选项！")}
 		F.Draw()
 		F.Ask()
 	}
+}
+
+func (F *FSCPanel)notifyOptionAction()bool  {
+	hasOption := false
+	// 根据用户的 option 调用相应 Action
+	for _, option := range F.options {
+		if option.Option == F.CurrentOption {
+			hasOption = true
+			option.Action()
+			break
+		}
+	}
+	return hasOption
 }
 
 func (F *FSCPanel)Ask() {
@@ -106,6 +107,6 @@ func (F *FSCPanel) DrawTitle() {
 
 func (F *FSCPanel) DrawOptions() {
 	for _, option := range F.options{
-		F.DrawOption(option)
+		F.DrawOption(*option)
 	}
 }

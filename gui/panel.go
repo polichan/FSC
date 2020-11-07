@@ -18,24 +18,35 @@ func ShowPanel()  {
 	panel.WatchingOption()
 }
 
-func PrepareOptionItems()[]logic.PanelOptionItem  {
-	// 创建数据源
-	panelOptionOne := logic.NewPanelOptionItem(logic.FSCPanelOptionLogin, func() {
-		logic.Login()
-	}, "账号登录")
-	panelOptionTwo := logic.NewPanelOptionItem(logic.FSCPanelOptionRunTarget, func() {
-		logic.RunTarget()
-	}, "体育锻炼")
-	panelOptionThree := logic.NewPanelOptionItem(logic.FSCPanelOptionFreeRun, func() {
-		logic.FreeRun()
-	}, "自由跑步")
-	panelOptionFour := logic.NewPanelOptionItem(logic.FSCPanelOptionExit, func() {
-		os.Exit(0)
-	}, "退出系统")
-	return []logic.PanelOptionItem{
+
+func PrepareOptionItems()[]*logic.PanelOptionItem  {
+	var (
 		panelOptionOne,
 		panelOptionTwo,
 		panelOptionThree,
-		panelOptionFour,
+		panelOptionFour logic.PanelOptionItem
+	)
+	// 创建数据源
+	panelOptionOne.SetPanelOptionItem(logic.FSCPanelOptionLogin, func() {
+		logic.Login(&panelOptionOne)
+	}, "账号登录")
+
+	panelOptionTwo.SetPanelOptionItem(logic.FSCPanelOptionRunTarget, func() {
+		logic.RunTarget()
+	}, "体育锻炼")
+
+	panelOptionThree.SetPanelOptionItem(logic.FSCPanelOptionFreeRun, func() {
+		logic.FreeRun()
+	}, "自由跑步")
+
+	panelOptionFour.SetPanelOptionItem(logic.FSCPanelOptionExit, func() {
+		os.Exit(0)
+	}, "退出系统")
+
+	return []*logic.PanelOptionItem{
+		&panelOptionOne,
+		&panelOptionTwo,
+		&panelOptionThree,
+		&panelOptionFour,
 	}
 }
