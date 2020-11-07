@@ -67,5 +67,8 @@ func execAction(option *int)  {
 		break
 		case FSCPanelOptionLogin:
 			login()
+		break
+		case FSCPanelOptionExit:
+			*option = 3
 	}
 }
