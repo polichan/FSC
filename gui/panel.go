@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"fsc/controller"
 	"fsc/global"
+	"fsc/util"
 )
 
 const (
@@ -25,7 +26,7 @@ func ShowPanel()  {
 
 func login()  {
 	if isLogin() {
-		global.FSC_LOG.Error("您已登录，请勿重复登录")
+		util.ShowUserInfo()
 		return
 	}
 	accountStruct := global.FSC_CONFIG.Account
@@ -44,7 +45,7 @@ func drawPanel()  {
 	fmt.Println("\n                  FSC v2.0")
 	fmt.Println("\n***********************************************")
 	if isLogin(){
-		fmt.Println("\n*          0----------已     登    录          *")
+		fmt.Println("\n*          0----------个  人  资   料          *")
 	}else{
 		fmt.Println("\n*          0----------账  号   登  录          *")
 	}
