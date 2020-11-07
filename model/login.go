@@ -9,5 +9,5 @@ type LoginStruct struct {
 	Mobile string `json:"mobile"  yaml:"mobile"`
 	Password string `json:"password"  yaml:"password"`
 	PhoneType string `json:"type"  yaml:"phoneType"`
-	Info uuid.UUID `json:"info"`
+	Info uuid.UUID `json:"info" yaml:"uuid"`
 }

@@ -13,8 +13,10 @@ import (
 
 
 func Login(loginModel *model.LoginStruct)(err error)  {
-	// 添加 uuid
-	loginModel.Info = uuid.NewV4()
+	if global.FSC_CONFIG.Account.Info.String() == "" {
+		// 如果没有填写特征码，就生成
+		loginModel.Info = uuid.NewV4()
+	}
 	// 序列化
 	v, _ := json.Marshal(loginModel)
 	// 获取 sign

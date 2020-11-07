@@ -21,6 +21,7 @@ account:
   mobile: "" # 登录账号
   password: "" # 密码
   phoneType: "" #手机类型，iPhone X，iPhone 7 等
+  uuid: "" # 唯一特征码，如果你知道自己之前的特征码，就尽量填写之前的（防风控），如果不知道，就留空，FSC 会自动生成。
 
 # 面板
 panel:
