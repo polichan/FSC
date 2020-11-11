@@ -21,7 +21,6 @@ func GetSchoolLocation(school string) (loc model.SchoolLocationStruct, err error
 		return schoolLocation, errors.New("获取学校地址失败")
 	}
 	if global.FSC_CONFIG.FSC.Debug {
-		global.FSC_LOG.Info("学校地址 - All", addressToGEO)
 		global.FSC_LOG.Info("学校地址 - Lat", addressToGEO.Result.Location.Lat)
 		global.FSC_LOG.Info("学校地址 - Lng", addressToGEO.Result.Location.Lng)
 	}

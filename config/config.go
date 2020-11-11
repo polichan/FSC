@@ -26,8 +26,8 @@ type SportCampusConfig struct {
 
 // 主菜单界面
 type FSCPanel struct {
-	RedDot string `json:"red-dot"`
-	GreenDot string `json:"green-dot"`
+	RedDot int `json:"redDot"`
+	GreenDot int `json:"greenDot"`
 }
 
 // Logger

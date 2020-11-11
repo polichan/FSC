@@ -1,8 +1,12 @@
 package model
 
+import (
+	uuid "github.com/satori/go.uuid"
+)
+
 // 打卡跑
 type RunStruct struct {
-	BNode []int `json:"bNode"`
+	BNode []IBeaconStruct `json:"bNode"`
 	BuPin int `json:"buPin"`
 	Busu int `json:"bushu"`
 	Duration int `json:"duration"`
@@ -13,7 +17,7 @@ type RunStruct struct {
 	RunPageId string `json:"runPageId"`
 	Speed string `json:"speed"`
 	StartTime string `json:"startTime"`
-	TNode []int `json:"tNode"`
+	TNode []LocationStruct `json:"tNode"`
 	TotalNum int `json:"totalNum"`
 	Track []int `json:"track"`
 	Trend []int `json:"trend"`
@@ -38,4 +42,28 @@ type FreeRunStruct struct {
 	Trend []int `json:"trend"`
 	Type string `json:"type"`
 	UserId string `json:"userId"`
+}
+
+type RunMapStruct struct {
+	BeaconCount int `json:"beaconcount"`
+	Gpnt int `json:"gpnt"`
+	Distance int `json:"distance"`
+	Peisu int `json:"peisu"`
+	GPSInfo []LocationStruct `json:"gpsinfo"`
+	Length string `json:"length"`
+	DayTarget string `json:"dayTarget"`
+	IBeacon []IBeaconStruct `json:"ibeacon"`
+	RunPageId int `json:"runPageId"`
+	MaxSeconds int `json:"maxSeconds"`
+}
+
+type IBeaconStruct struct {
+	Name string `json:"name"`
+	Type int `json:"type"`
+	Number string `json:"number"`
+	Position LocationStruct `json:"position"`
+	ID string `json:"id"`
+	UUID uuid.UUID `json:"uuid"`
+	Major string `json:"major"`
+	Minor string `json:"minor"`
 }
