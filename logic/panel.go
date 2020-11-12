@@ -102,6 +102,13 @@ func (F *FSCPanel) DrawOption(option PanelOptionItem) {
 }
 
 func (F *FSCPanel) DrawTitle() {
+	fmt.Print(`
+	     _____ ____   ____ 
+	    |  ___/ ___| / ___|
+	    | |_  \___ \| |    
+	    |  _|  ___) | |___ 
+ 	    |_|   |____/ \____|
+                    `)
 	fmt.Printf("\n                  FSC v%s\n", global.FSC_CONFIG.FSC.Version)
 }
 
