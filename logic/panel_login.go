@@ -21,10 +21,12 @@ func Login(item *PanelOptionItem)  {
 		if hasLoginSuccess {
 			resetItemTitle(item)
 			util.ShowUserInfo()
+			return
 		}
+	}else{
+		resetItemTitle(item)
+		util.ShowUserInfo()
 	}
-	resetItemTitle(item)
-	util.ShowUserInfo()
 }
 
 func hasInputCorrectAccountInfoInConfig()bool  {
