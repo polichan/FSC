@@ -37,7 +37,6 @@ func RunTarget(user *model.UserStruct)(err error)  {
 			return err
 		}else{
 			// 红点和绿点
-			// todo 分析结果坐标，自动寻路
 			redDot, greenDot := global.FSC_CONFIG.Panel.RedDot, global.FSC_CONFIG.Panel.GreenDot
 			var runMapResponse response.SCRunMapResponseStruct
 			err = json.Unmarshal(body, &runMapResponse)
@@ -66,8 +65,25 @@ func RunTarget(user *model.UserStruct)(err error)  {
 			var runTargetRequest model.RunStruct
 			runTargetRequest.BNode = possibleBNode[:redDot]
 			runTargetRequest.TNode = possibleTNode[:greenDot]
-			global.FSC_LOG.Info(runTargetRequest.BNode)
-			global.FSC_LOG.Info(runTargetRequest.TNode)
+			positionInfo := runTargetRequest.BNode[0].Position
+			// 起始点
+			startPoint := util.NewGPSPoint(stringToFloat64(positionInfo.Latitude), stringToFloat64(positionInfo.Longitude))
+			var gpsPointList []*util.GPSPointStruct
+			for _, _ = range []int{0, 1} {
+				// 起始点进行 Walk，按照 strip 的区间 [-strip, strip] 随机增加或减少步数， 并返回一个新的 point 结构体
+				gpsPointList = append(gpsPointList, startPoint.Walk(0.003))
+			}
+			for _, node := range runTargetRequest.BNode{
+				pos := node.Position
+				pos.Speed = 0.0
+				node.Position = pos
+				gpsPointList = append(gpsPointList, util.NewGPSPoint(stringToFloat64(pos.Latitude), stringToFloat64(pos.Longitude)))
+			}
+			for _, node := range runTargetRequest.TNode{
+				node.Speed = 0.0
+				gpsPointList = append(gpsPointList, util.NewGPSPoint(stringToFloat64(node.Latitude), stringToFloat64(node.Longitude)))
+			}
+			// todo 自动根据 GpsPointList 进行寻路
 		}
 	}
 	return err
