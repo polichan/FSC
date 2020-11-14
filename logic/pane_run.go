@@ -11,8 +11,8 @@ func RunTarget()  {
 		return
 	}
 	global.FSC_LOG.Info("当前配置如下：")
-	global.FSC_LOG.Infof("目标跑 %s 个红点", global.FSC_CONFIG.Panel.RedDot)
-	global.FSC_LOG.Infof("目标跑 %s 个绿点", global.FSC_CONFIG.Panel.GreenDot)
+	global.FSC_LOG.Infof("目标跑 %d 个红点", global.FSC_CONFIG.Panel.RedDot)
+	global.FSC_LOG.Infof("目标跑 %d 个绿点", global.FSC_CONFIG.Panel.GreenDot)
 	controller.RunTarget()
 }
 

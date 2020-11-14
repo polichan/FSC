@@ -7,9 +7,9 @@ import (
 // 打卡跑
 type RunStruct struct {
 	BNode []IBeaconStruct `json:"bNode"`
-	BuPin int `json:"buPin"`
+	BuPin string `json:"buPin"`
 	Busu int `json:"bushu"`
-	Duration int `json:"duration"`
+	Duration string `json:"duration"`
 	EndTime string `json:"endTime"`
 	Frombp int `json:"frombp"`
 	Goal []int `json:"goal"`

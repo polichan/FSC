@@ -1,9 +1,5 @@
 package util
 
-import (
-	"math/rand"
-)
-
 type IGPSPoint interface {
 	Walk()
 }
@@ -21,12 +17,6 @@ func NewGPSPoint(lat, lng float64)*GPSPointStruct  {
 }
 
 func (G *GPSPointStruct) Walk(strip float64)*GPSPointStruct {
-	return NewGPSPoint(G.Latitude + random(-strip, strip), G.Longitude + random(-strip, strip))
+	return NewGPSPoint(G.Latitude + RandomFloat(-strip, strip), G.Longitude + RandomFloat(-strip, strip))
 }
-
-
-func random(min, max float64)float64  {
-	return min + rand.Float64() * (max - min)
-}
-
 
