@@ -7,10 +7,15 @@ func Float64ToString(v float64)string  {
 }
 
 func StringToFloat64(v string)float64  {
-	float, _ :=strconv.ParseFloat(v, 64)
+	float, _ := strconv.ParseFloat(v, 64)
 	return float
 }
 
 func IntToString(v int)string  {
 	return strconv.Itoa(v)
+}
+
+func StringToInt(v string)int  {
+	i, _ := strconv.Atoi(v)
+	return i
 }

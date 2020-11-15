@@ -83,13 +83,14 @@ func RunTarget(user *model.UserStruct)(err error)  {
 				node.Speed = 0.0
 				gpsPointList = append(gpsPointList, util.NewGPSPoint(util.StringToFloat64(node.Latitude), util.StringToFloat64(node.Longitude)))
 			}
+			//path := util.PathPlan(gpsPointList)
 			// todo 自动根据 GpsPointList 进行寻路
 			distance := 2.0
 			speed := util.RandomInt(300, 500) // 每千米需要花费多少秒钟
 			duration := int(distance) * speed
 			runTargetRequest.StartTime = time.Now().Format("2006-01-02 15:04:05")
 			runTargetRequest.EndTime = time.Now().Add(time.Duration(duration)).Format("2006-01-02 15:04:05")
-			runTargetRequest.UserId = user.UserId
+			runTargetRequest.UserId = util.StringToInt(user.UserId)
 			runTargetRequest.RunPageId = util.IntToString(runMapResponse.Data.RunPageId)
 			runTargetRequest.Real = util.Float64ToString(distance * 1000)
 			runTargetRequest.Duration = util.IntToString(duration)

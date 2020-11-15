@@ -22,7 +22,7 @@ type RunStruct struct {
 	Track []int `json:"track"`
 	Trend []int `json:"trend"`
 	Type string `json:"type"`
-	UserId string `json:"userId"`
+	UserId int `json:"userId"`
 }
 
 // 自由跑
