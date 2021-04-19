@@ -5,8 +5,8 @@ import (
 	"fsc/global"
 )
 
-func RunTarget()  {
-	if global.FSC_CONFIG.Panel.RedDot == 0 ||  global.FSC_CONFIG.Panel.GreenDot == 0{
+func RunTarget() {
+	if global.FSC_CONFIG.Panel.RedDot == 0 || global.FSC_CONFIG.Panel.GreenDot == 0 {
 		global.FSC_LOG.Error("请先在 config.yaml 中配置需要跑几个红点以及绿点")
 		return
 	}
@@ -16,6 +16,6 @@ func RunTarget()  {
 	controller.RunTarget()
 }
 
-func FreeRun()  {
+func FreeRun() {
 
 }

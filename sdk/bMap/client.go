@@ -1,8 +1,8 @@
 package bMap
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 // BaiduMapClient
@@ -89,6 +89,6 @@ func (bc *BaiduMapClient) GetAddressViaIP(address string) (*StructIPToAddress, e
 
 }
 
-func  (bc *BaiduMapClient) GetDirectionByWalking(origin, destination float64)(*StructDirectionPlan, error)   {
-	return nil ,nil
+func (bc *BaiduMapClient) GetDirectionByWalking(origin, destination float64) (*StructDirectionPlan, error) {
+	return nil, nil
 }

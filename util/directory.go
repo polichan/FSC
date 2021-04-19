@@ -16,7 +16,6 @@ func PathExists(path string) (bool, error) {
 	return false, err
 }
 
-
 func CreateDir(dirs ...string) (err error) {
 	for _, v := range dirs {
 		exist, err := PathExists(v)

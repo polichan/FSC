@@ -74,18 +74,17 @@ type StructIPToAddress struct {
 	Message string `json:"message"`
 }
 
-
 type StructDirectionPlan struct {
-	Routes struct{
+	Routes struct {
 		Distance int `json:"distance"`
 		Duration int `json:"duration"`
-		Steps	struct{
-			Direction int `json:"direction"`
-			Distance int `json:"distance"`
-			Instruction string `json:"instruction"`
+		Steps    struct {
+			Direction     int            `json:"direction"`
+			Distance      int            `json:"distance"`
+			Instruction   string         `json:"instruction"`
 			StartLocation StructLocation `json:"'start_location'"`
-			EndLocation StructLocation `json:"'end_location'"`
-			Path string `json:"path"`
+			EndLocation   StructLocation `json:"'end_location'"`
+			Path          string         `json:"path"`
 		}
 	}
 }

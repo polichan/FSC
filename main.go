@@ -7,11 +7,7 @@ import (
 
 func main() {
 	// 注册核心
-	InitCore()
+	core.Init()
 	// 展示面板
 	gui.ShowPanel()
-}
-
-func InitCore()  {
-	core.Init()
 }

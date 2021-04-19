@@ -6,7 +6,7 @@ import (
 	"fsc/util"
 )
 
-func Login(item *PanelOptionItem)  {
+func Login(item *PanelOptionItem) {
 	if !hasLogin() {
 		// 没有登陆
 		// 是否在配置文件写了用户信息
@@ -23,13 +23,13 @@ func Login(item *PanelOptionItem)  {
 			util.ShowUserInfo()
 			return
 		}
-	}else{
+	} else {
 		resetItemTitle(item)
 		util.ShowUserInfo()
 	}
 }
 
-func hasInputCorrectAccountInfoInConfig()bool  {
+func hasInputCorrectAccountInfoInConfig() bool {
 	return global.FSC_CONFIG.Account.Mobile != "" && global.FSC_CONFIG.Account.Password != "" && global.FSC_CONFIG.Account.PhoneType != ""
 }
 
@@ -37,6 +37,6 @@ func hasLogin() bool {
 	return global.FSC_USER != nil
 }
 
-func resetItemTitle(item *PanelOptionItem)  {
+func resetItemTitle(item *PanelOptionItem) {
 	item.Title = "个人资料"
 }

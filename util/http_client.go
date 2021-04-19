@@ -48,10 +48,10 @@ func (h *FSCHttpClient) SetHeader(header map[string]string) {
     h.Header = header
 }
  
-func (h *FSCHttpClient) SetSendType(send_type string) {
+func (h *FSCHttpClient) SetSendType(sendType string) {
     h.Lock()
     defer h.Unlock()
-    h.SendType = send_type
+    h.SendType = sendType
 }
  
 func (h *FSCHttpClient) Get() ([]byte, error) {
@@ -62,7 +62,7 @@ func (h *FSCHttpClient) Post() ([]byte, error) {
     return h.send(POST_METHOD)
 }
  
-func GetUrlBuild(link string, data map[string]string) string {
+func GetUrlBuilder(link string, data map[string]string) string {
     u, _ := url.Parse(link)
     q := u.Query()
     for k, v := range data {
@@ -76,25 +76,25 @@ func (h *FSCHttpClient) send(method string) ([]byte, error) {
     var (
         req       *http.Request
         resp      *http.Response
-        client    http.Client
-        send_data string
-        err       error
+        client   http.Client
+        sendData string
+        err      error
     )
  
     if len(h.Body) > 0 {
         if strings.ToLower(h.SendType) == SENDTYPE_JSON {
-            send_body, json_err := json.Marshal(h.Body)
-            if json_err != nil {
-                return nil, json_err
+            sendBody, jsonErr := json.Marshal(h.Body)
+            if jsonErr != nil {
+                return nil, jsonErr
             }
-            send_data = string(send_body)
+            sendData = string(sendBody)
         } else {
-            send_body := http.Request{}
-            send_body.ParseForm()
+            sendBody := http.Request{}
+            sendBody.ParseForm()
             for k, v := range h.Body {
-                send_body.Form.Add(k, v)
+                sendBody.Form.Add(k, v)
             }
-            send_data = send_body.Form.Encode()
+            sendData = sendBody.Form.Encode()
         }
     }
  
@@ -103,7 +103,7 @@ func (h *FSCHttpClient) send(method string) ([]byte, error) {
         TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
     }
  
-    req, err = http.NewRequest(method, h.Link, strings.NewReader(send_data))
+    req, err = http.NewRequest(method, h.Link, strings.NewReader(sendData))
     if err != nil {
         return nil, err
     }
@@ -147,7 +147,6 @@ func (h *FSCHttpClient) send(method string) ([]byte, error) {
          // 如果以及登录过了，就添加 UToken 进去
         req.Header.Add("utoken", global.FSC_USER.UToken)
      }
-
 
     resp, err = client.Do(req)
     if err != nil {

@@ -2,7 +2,7 @@ package util
 
 import "fsc/global"
 
-func ShowUserInfo()  {
+func ShowUserInfo() {
 	global.FSC_LOG.Info("当前登录账户信息：")
 	global.FSC_LOG.Info("用户名：", global.FSC_USER.Username)
 	global.FSC_LOG.Info("所在学校：", global.FSC_USER.School)

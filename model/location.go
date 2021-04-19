@@ -7,7 +7,7 @@ type SchoolLocationStruct struct {
 }
 
 type LocationStruct struct {
-	Longitude string `json:"longitude"`
-	Latitude string `json:"latitude"`
-	Speed float64 `json:"speed"`
+	Longitude string  `json:"longitude"`
+	Latitude  string  `json:"latitude"`
+	Speed     float64 `json:"speed"`
 }

@@ -16,7 +16,7 @@ import (
 const (
 	logDir      = "log"
 	logSoftLink = "latest_log"
-	module      = "gin-vue-admin"
+	module      = "fsc"
 )
 
 var (

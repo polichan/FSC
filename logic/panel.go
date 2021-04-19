@@ -16,7 +16,7 @@ const (
 type PanelOptionItem struct {
 	Option int
 	Action func()
-	Title string
+	Title  string
 }
 
 type IPanel interface {
@@ -34,7 +34,7 @@ type IPanel interface {
 
 type FSCPanel struct {
 	CurrentOption int
-	options []*PanelOptionItem
+	options       []*PanelOptionItem
 }
 
 func (F FSCPanel) Draw() {
@@ -44,7 +44,7 @@ func (F FSCPanel) Draw() {
 	F.DrawLine()
 }
 
-func (P *PanelOptionItem)SetPanelOptionItem(option int, action func(), title string) {
+func (P *PanelOptionItem) SetPanelOptionItem(option int, action func(), title string) {
 	P.Option = option
 	P.Action = action
 	P.Title = title
@@ -54,7 +54,7 @@ func NewFSCPanel() *FSCPanel {
 	return &FSCPanel{options: make([]*PanelOptionItem, 0), CurrentOption: FSCPanelOptionWaitingUserInput}
 }
 
-func (F *FSCPanel)SetCurrentOption(option int) {
+func (F *FSCPanel) SetCurrentOption(option int) {
 	F.CurrentOption = option
 }
 
@@ -66,17 +66,19 @@ func (F *FSCPanel) SetOptions(options []*PanelOptionItem) {
 	F.options = options
 }
 
-func (F *FSCPanel)WatchingOption()  {
-	for F.CurrentOption !=  FSCPanelOptionExit{
+func (F *FSCPanel) WatchingOption() {
+	for F.CurrentOption != FSCPanelOptionExit {
 		_, _ = fmt.Scanf("%d", &F.CurrentOption)
 		hasOption := F.notifyOptionAction()
-		if !hasOption {global.FSC_LOG.Info("请选择正确的选项！")}
+		if !hasOption {
+			global.FSC_LOG.Info("请选择正确的选项！")
+		}
 		F.Draw()
 		F.Ask()
 	}
 }
 
-func (F *FSCPanel)notifyOptionAction()bool  {
+func (F *FSCPanel) notifyOptionAction() bool {
 	hasOption := false
 	// 根据用户的 option 调用相应 Action
 	for _, option := range F.options {
@@ -89,7 +91,7 @@ func (F *FSCPanel)notifyOptionAction()bool  {
 	return hasOption
 }
 
-func (F *FSCPanel)Ask() {
+func (F *FSCPanel) Ask() {
 	fmt.Printf("\n请选择选项号: ")
 }
 
@@ -113,7 +115,7 @@ func (F *FSCPanel) DrawTitle() {
 }
 
 func (F *FSCPanel) DrawOptions() {
-	for _, option := range F.options{
+	for _, option := range F.options {
 		F.DrawOption(*option)
 	}
 }

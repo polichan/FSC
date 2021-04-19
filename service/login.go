@@ -11,8 +11,7 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-
-func Login(loginModel *model.LoginStruct)(err error)  {
+func Login(loginModel *model.LoginStruct) (err error) {
 	if global.FSC_CONFIG.Account.Info.String() == "" {
 		// 如果没有填写特征码，就生成
 		loginModel.Info = uuid.NewV4()
@@ -26,19 +25,19 @@ func Login(loginModel *model.LoginStruct)(err error)  {
 	loginRequestStruct.Sign = sign
 	loginRequestStruct.Data = string(v)
 	// 转 map
-	mp:=make(map[string]string)
+	mp := make(map[string]string)
 	_ = util.Transfer(loginRequestStruct, &mp)
 	// 请求
-	client := util.NewFSCHttpClientSend(util.GetUrlBuild(util.GenerateUrl("/api/reg/login"), mp))
+	client := util.NewFSCHttpClientSend(util.GetUrlBuilder(util.GenerateUrl("/api/reg/login"), mp))
 	body, err := client.Get()
 	if err != nil {
 		return err
 	}
 	scRep := response.SCResponse{}
 	scUser := model.UserStruct{}
-    err = json.Unmarshal(body, &scRep)
-    // 传递给全局
-    err = mapstructure.Decode(scRep.Data, &scUser)
-    global.FSC_USER = &scUser
+	err = json.Unmarshal(body, &scRep)
+	// 传递给全局
+	err = mapstructure.Decode(scRep.Data, &scUser)
+	global.FSC_USER = &scUser
 	return err
 }

@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func ShowPanel()  {
+func ShowPanel() {
 	// 构建面板
 	panel := logic.NewFSCPanel()
 	// 设置面板选项数据
@@ -18,8 +18,7 @@ func ShowPanel()  {
 	panel.WatchingOption()
 }
 
-
-func PrepareOptionItems()[]*logic.PanelOptionItem  {
+func PrepareOptionItems() []*logic.PanelOptionItem {
 	var (
 		panelOptionOne,
 		panelOptionTwo,

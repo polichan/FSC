@@ -9,7 +9,7 @@ import (
 
 const defaultConfigFile = "config.yaml"
 
-func Init()  {
+func Init() {
 	v := viper.New()
 	v.SetConfigFile(defaultConfigFile)
 	err := v.ReadInConfig()

@@ -36,7 +36,7 @@ func GetAddressViaIP(address string) (*StructIPToAddress, error) {
 	return bc.GetAddressViaIP(address)
 }
 
-func GetDirectionByWalking(origin, destination float64)(*StructDirectionPlan, error)  {
+func GetDirectionByWalking(origin, destination float64) (*StructDirectionPlan, error) {
 	bc := NewBaiduMapClient(GetDefaultAK())
 	return bc.GetDirectionByWalking(origin, destination)
 }

@@ -28,26 +28,3 @@ func GetSchoolLocation(school string) (loc model.SchoolLocationStruct, err error
 	schoolLocation.Lng = addressToGEO.Result.Location.Lng
 	return schoolLocation, nil
 }
-
-
-//
-//// 路劲规划
-//func PathPlan(gpsPointList []*GPSPointStruct)  {
-//	index := 0
-//	//paths := []int{}
-//	//dis := 0
-//	for index < len(gpsPointList) - 1 {
-//		startPoint, endPoint := gpsPointList[index], gpsPointList[index + 1]
-//		// route
-//		index +=1
-//	}
-//	//paths := GenerateHumanLikeRoute(paths)
-//}
-//
-//func GetRoute(){
-//	bc := gobaidumap.NewBaiduMapClient(global.FSC_CONFIG.BaiduMapConfig.AccessKey)
-//}
-
-//func GenerateHumanLikeRoute()  {
-//
-//}
